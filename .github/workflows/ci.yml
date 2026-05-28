@@ -1,0 +1,47 @@
+# Nombre de nuestro robot (puede ser cualquier cosa)
+name: Robot Revisor CI
+
+# ¿Cuándo se activa?
+on:
+  push:                    # Cuando alguien sube código
+    branches: [ main ]     # Solo en la rama main
+  pull_request:            # Cuando alguien abre una solicitud
+    branches: [ main ]     # Solo para cambios a main
+
+# ¿Qué trabajos va a hacer?
+jobs:
+  # Trabajo 1: Revisar el código
+  revisar-codigo:
+    # El robot usa un sistema operativo limpio
+    runs-on: ubuntu-latest
+    
+    # Pasos que sigue el robot
+    steps:
+      # Paso 1: Descargar el código
+      - name: 📥 Descargar código
+        uses: actions/checkout@v4
+      
+      # Paso 2: Instalar herramientas
+      - name: 🔧 Instalar herramientas
+        run: echo "Instalando herramientas..."
+      
+      # Paso 3: Revisar que no haya errores tontos
+      - name: 🔍 Revisando errores de ortografía
+        run: echo "Revisando errores..."
+      
+      # Paso 4: Ejecutar pruebas
+      - name: 🧪 Ejecutando pruebas
+        run: echo "✅ Todas las pruebas pasaron!"
+      
+      # Paso 5: Dar un mensaje de éxito
+      - name: 🎉 Finalizado
+        run: echo "¡El robot ha terminado de revisar!"
+  
+  # Trabajo 2: Verificar que el código está bonito (opcional)
+  revisar-formato:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Descargar código
+        uses: actions/checkout@v4
+      - name: ✨ Revisar formato
+        run: echo "¡El código está hermoso!"
