@@ -1,2 +1,1 @@
-# Mi proyecto
-## Este es mi proyecto de DAW
+error de ortografía
